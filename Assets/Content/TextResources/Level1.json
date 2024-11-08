@@ -1,0 +1,49 @@
+{
+  "objects": [
+    {
+      "Id": "Apple_tree",
+      "Position": { "x": 5, "y": 2, "z": 0 },
+      "Scale": { "x": 1.0, "y": 1.0, "z": 1.0 },
+      "Layer": 1,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "Produces": "Apple"
+    },
+    {
+      "Id": "Apple_tree",
+      "Position": { "x": -3, "y": 4, "z": 0 },
+      "Scale": { "x": 1.0, "y": 1.0, "z": 1.0 },
+      "Layer": 1,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "Produces": "Apple"
+    },
+    {
+      "Id": "beehive",
+      "Position": { "x": 10, "y": -3, "z": 0 },
+      "Scale": { "x": 1.2, "y": 1.2, "z": 1.2 },
+      "Layer": 2,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 45.0 },
+      "Produces": "Bee"
+    },
+    {
+      "Id": "Plum",
+      "Position": { "x": 3, "y": 5, "z": 0 },
+      "Scale": { "x": 0.5, "y": 0.5, "z": 0.5 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Apple",
+      "Position": { "x": 4, "y": -1, "z": 0 },
+      "Scale": { "x": 0.6, "y": 0.6, "z": 0.6 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Pear",
+      "Position": { "x": 1, "y": 8, "z": 0 },
+      "Scale": { "x": 0.7, "y": 0.7, "z": 0.7 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    }
+  ]
+}
