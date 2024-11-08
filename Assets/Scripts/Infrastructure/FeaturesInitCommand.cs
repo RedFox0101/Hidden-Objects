@@ -1,4 +1,3 @@
-using UnityEngine;
 using Zenject;
 
 namespace Assets.Scripts.Infrastructure
@@ -15,9 +14,10 @@ namespace Assets.Scripts.Infrastructure
 
         private void CreateInitializationPipe()
         {
-            Debug.Log("BindDependencies2");
+            _initializationCommandExecutor.Add<LeveFeatureInitCommand>();
             _initializationCommandExecutor.Add<AssetFeatureInitCommand>();
             _initializationCommandExecutor.Add<SceneFeatureInitCommand>();
+            _initializationCommandExecutor.Add<HiddenObjectFeatureInitCommand>();
         }
     }
 }

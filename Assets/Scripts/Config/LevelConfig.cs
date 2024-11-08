@@ -9,6 +9,8 @@ namespace Assets.Scripts.Config
         [SerializeField] private TextAsset _levelJson;
         [SerializeField] private LevelData _levelData = new();
 
+        public LevelData LevelData  => _levelData; 
+
         private void OnValidate()
         {
             ParseJsonFile();

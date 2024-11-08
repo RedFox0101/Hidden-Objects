@@ -10,36 +10,28 @@ namespace Assets.Scripts.Features.AssetLoader
 {
     public class AssetsLoaderService
     {
-        private Dictionary<string, object> _loadedAssets = new Dictionary<string, object>();
+        private Dictionary<string, Sprite> _loadedAssets = new Dictionary<string, Sprite>();
 
-        public async Task< UILoadingScreen> LoadUILoadScreenAsync(string key)
+        public async Task<Sprite> LoadSprite(string key)
         {
             if (_loadedAssets.ContainsKey(key))
             {
-                return _loadedAssets[key] as UILoadingScreen;
+                return _loadedAssets[key];
             }
 
-            AsyncOperationHandle handle = Addressables.InstantiateAsync(key);
-            var cashObject =(GameObject) await handle.Task;
+            var handle = Addressables.LoadAssetAsync<Sprite>(key);
+            var cachObject =(Sprite) await handle.Task;
 
 
-            if(cashObject.TryGetComponent(out UILoadingScreen loadingScreen))
+            if(handle.Status==AsyncOperationStatus.Succeeded)
             {
-                return loadingScreen;
+                _loadedAssets[key] = cachObject;
+                return cachObject;
             }
             else
             {
                 Debug.LogError($"Failed to load asset with key: {key}");
                 return null;
-            }
-        }
-
-        public void ReleaseAsset(string key)
-        {
-            if (_loadedAssets.ContainsKey(key))
-            {
-                Addressables.Release(_loadedAssets[key]);
-                _loadedAssets.Remove(key);
             }
         }
 
