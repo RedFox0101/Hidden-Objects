@@ -1,5 +1,5 @@
 ﻿[System.Serializable]
-public class Vector3
+public class Vector
 {
     public float x;
     public float y;
