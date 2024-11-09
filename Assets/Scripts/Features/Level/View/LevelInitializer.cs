@@ -1,14 +1,16 @@
 using UnityEngine;
 using Zenject;
 
-public class LevelView : MonoBehaviour
+public class LevelInitializer : MonoBehaviour
 {
     [SerializeField] private BaseObjectView hiddenObjectViewPrefab;
     [SerializeField] private BaseObjectView _producerViewPrefab;
+    [SerializeField] private Transform _parent;
 
     private HiddenObjectFactory _hiddenObjectFactoryService;
     private LevelRepository _levelRepository;
 
+    
     [Inject]
     public void Constructor(HiddenObjectFactory hiddenObjectFactoryService, LevelRepository levelRepository)
     {
@@ -27,7 +29,7 @@ public class LevelView : MonoBehaviour
         {
             var prefab = hiddenObject.Produces != null ? _producerViewPrefab : hiddenObjectViewPrefab;
 
-            var newObjects = _hiddenObjectFactoryService.Create(prefab);
+            var newObjects = _hiddenObjectFactoryService.Create((prefab, _parent));
             newObjects.Setup(hiddenObject);
         }
     }

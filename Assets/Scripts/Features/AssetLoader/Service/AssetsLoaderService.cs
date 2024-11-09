@@ -1,7 +1,6 @@
 using Assets.Scripts.Features.SceneLoader;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -10,17 +9,17 @@ namespace Assets.Scripts.Features.AssetLoader
 {
     public class AssetsLoaderService
     {
-        private Dictionary<string, Sprite> _loadedAssets = new Dictionary<string, Sprite>();
+        private Dictionary<string, object> _loadedAssets = new Dictionary<string, object>();
 
-        public async Task<Sprite> LoadSprite(string key)
+        public async Task<T> LoadAsset<T>(string key) where T : class
         {
             if (_loadedAssets.ContainsKey(key))
             {
-                return _loadedAssets[key];
+                return _loadedAssets[key] as T;
             }
 
-            var handle = Addressables.LoadAssetAsync<Sprite>(key);
-            var cachObject =(Sprite) await handle.Task;
+            var handle = Addressables.LoadAssetAsync<T>(key);
+            var cachObject =(T) await handle.Task;
 
 
             if(handle.Status==AsyncOperationStatus.Succeeded)

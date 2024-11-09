@@ -14,8 +14,10 @@ namespace Assets.Scripts.Infrastructure
 
         private void CreateInitializationPipe()
         {
+            _initializationCommandExecutor.Add<CameraFeatureInitCommand>();
             _initializationCommandExecutor.Add<LeveFeatureInitCommand>();
             _initializationCommandExecutor.Add<AssetFeatureInitCommand>();
+            _initializationCommandExecutor.Add<CounterFeatureInitCommand>();
             _initializationCommandExecutor.Add<SceneFeatureInitCommand>();
             _initializationCommandExecutor.Add<HiddenObjectFeatureInitCommand>();
         }

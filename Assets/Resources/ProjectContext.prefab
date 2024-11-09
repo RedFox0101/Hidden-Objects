@@ -44,6 +44,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53ed95c6bf4bbe4e80d79ae016ea036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6676538056170544501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3988290789889707113}
+  - component: {fileID: 6344722374381412949}
+  m_Layer: 0
+  m_Name: Camera Mono Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3988290789889707113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676538056170544501}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4188723112149297139}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6344722374381412949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676538056170544501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93fad9820c8782d49a8668ffd410dc42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraControlConfig: {fileID: 11400000, guid: 28e8553e717ed8f448b94c1ab07ab79c, type: 2}
 --- !u!1 &7363713741495601296
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +166,7 @@ Transform:
   m_Children:
   - {fileID: 1321027555540757200}
   - {fileID: 3296187239925439675}
+  - {fileID: 3988290789889707113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8643531684763691048
@@ -137,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
+  - {fileID: 6344722374381412949}
   - {fileID: 5740293493683227571}
   - {fileID: 6265700899861144509}
   _installerPrefabs: []
