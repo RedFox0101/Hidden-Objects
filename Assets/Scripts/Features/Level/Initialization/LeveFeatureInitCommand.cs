@@ -5,6 +5,6 @@ public class LeveFeatureInitCommand : BaseFeatureInitCommand
 {
     public override void BindDependencies(DiContainer DiContainer)
     {
-        
+        DiContainer.BindInterfacesAndSelfTo<LevelObjectInitializer>().AsSingle();
     }
 }

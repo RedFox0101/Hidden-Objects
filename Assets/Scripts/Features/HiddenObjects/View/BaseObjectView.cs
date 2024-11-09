@@ -5,9 +5,12 @@ using Zenject;
 public abstract class BaseObjectView : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private LayerMask _layerMask;
 
     private AssetsLoaderService _assetsLoaderService;
+    private HiddenObjectData _hiddenObjectData;
+
+    public HiddenObjectData HiddenObjectData => _hiddenObjectData;
+    public ICommand ObjectClickCommand { get; private set; }
 
     [Inject]
     private void Construtor(AssetsLoaderService assetsLoaderService)
@@ -15,13 +18,18 @@ public abstract class BaseObjectView : MonoBehaviour
         _assetsLoaderService = assetsLoaderService;
     }
 
-    public async void Setup(HiddenObjectData hiddenObjectData)
+    public async virtual void Setup(HiddenObjectData hiddenObjectData)
     {
+        _hiddenObjectData = hiddenObjectData;
         _spriteRenderer.sprite = await _assetsLoaderService.LoadAsset<Sprite>(hiddenObjectData.Id);
         transform.position = Vector3.zero.VectorToVector3(hiddenObjectData.Position);
         transform.localRotation = Quaternion.Euler(Vector3.zero.VectorToVector3(hiddenObjectData.Rotation));
         transform.localScale = Vector3.zero.VectorToVector3(hiddenObjectData.Scale);
-        _layerMask.value = hiddenObjectData.Layer;
         gameObject.AddComponent<BoxCollider2D>();
+    }
+
+    public void OnClickedObject()
+    {
+        ObjectClickCommand.Execute();
     }
 }
