@@ -8,9 +8,10 @@ public abstract class BaseObjectView : MonoBehaviour
 
     private AssetsLoaderService _assetsLoaderService;
     private HiddenObjectData _hiddenObjectData;
+    protected ICommand ObjectClickCommand;
+    protected BoxCollider2D Collider;
 
     public HiddenObjectData HiddenObjectData => _hiddenObjectData;
-    public ICommand ObjectClickCommand { get; private set; }
 
     [Inject]
     private void Construtor(AssetsLoaderService assetsLoaderService)
@@ -25,7 +26,7 @@ public abstract class BaseObjectView : MonoBehaviour
         transform.position = Vector3.zero.VectorToVector3(hiddenObjectData.Position);
         transform.localRotation = Quaternion.Euler(Vector3.zero.VectorToVector3(hiddenObjectData.Rotation));
         transform.localScale = Vector3.zero.VectorToVector3(hiddenObjectData.Scale);
-        gameObject.AddComponent<BoxCollider2D>();
+        Collider = gameObject.AddComponent<BoxCollider2D>();
     }
 
     public void OnClickedObject()

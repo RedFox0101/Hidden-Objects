@@ -1,3 +1,4 @@
+using System;
 using UniRx;
 
 public class MessageBroker
@@ -10,4 +11,10 @@ public class MessageBroker
         _messageSubject.OnNext(message);
     }
 
+    public IObservable<T> Receive<T>() where T : MessageBase
+    {
+        return _messageSubject
+           .Where(message => message is T)
+           .Select(message => (T)message);
+    }
 }

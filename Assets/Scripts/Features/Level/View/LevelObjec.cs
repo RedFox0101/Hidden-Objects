@@ -6,10 +6,10 @@ using Zenject;
 public class LevelObjec : MonoBehaviour
 {
     [SerializeField] private Transform _parent;
-    [Inject] private LevelObjectInitializer objectInitializer;
+    [Inject] private ObjectInitializeService objectInitializer;
 
     private void Start()
     {
-        objectInitializer.InitializeLevelObjects(_parent);
+        objectInitializer.InitializeObjects(_parent);
     }
 }

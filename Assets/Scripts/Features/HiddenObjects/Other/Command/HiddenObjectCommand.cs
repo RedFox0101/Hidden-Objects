@@ -1,13 +1,18 @@
-using UniRx;
-public class HiddenObjectCommand : ICommand
+
+public class HiddenObjectCommand : ICommand, ISender
 {
     private BaseObjectView _baseObjectView;
+    private MessageBroker _messageBroker;
 
-    public ReactiveCommand<BaseObjectView> ObjectClickCommand;
+    public HiddenObjectCommand(BaseObjectView baseObjectView, MessageBroker messageBroker)
+    {
+        _baseObjectView = baseObjectView;
+        _messageBroker = messageBroker;
+    }
 
     public void Execute()
     {
-        ObjectClickCommand.Execute(_baseObjectView);
+        _messageBroker.Publish(MessageBase.Create(this, _baseObjectView.HiddenObjectData.Id, null));
         _baseObjectView.gameObject.SetActive(false);
     }
 }

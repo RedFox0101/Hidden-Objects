@@ -1,10 +1,8 @@
 using Assets.Scripts.Features.AssetLoader;
 using System.Threading.Tasks;
 using UnityEngine;
-using UniRx;
-using System.Collections.Generic;
 
-public class LevelObjectInitializer
+public class ObjectInitializeService
 {
     private HiddenObjectFactory _hiddenObjectFactoryService;
     private LevelRepository _levelRepository;
@@ -13,18 +11,20 @@ public class LevelObjectInitializer
     private BaseObjectView _producerViewPrefab;
     private BaseObjectView _hiddenObjectViewPrefab;
 
-   
-    public LevelObjectInitializer(HiddenObjectFactory hiddenObjectFactoryService, LevelRepository levelRepository, AssetsLoaderService assetsLoaderService)
+    private Transform _parent;
+
+    public ObjectInitializeService(HiddenObjectFactory hiddenObjectFactoryService, LevelRepository levelRepository, AssetsLoaderService assetsLoaderService)
     {
         _hiddenObjectFactoryService = hiddenObjectFactoryService;
         _levelRepository = levelRepository;
         _assetsLoaderService = assetsLoaderService;
     }
 
-    public async void InitializeLevelObjects(Transform parent)
+    public async void InitializeObjects(Transform parent)
     {
-        
-        if (_producerViewPrefab==null)
+        _parent = parent;
+
+        if (_producerViewPrefab == null)
         {
             _producerViewPrefab = await LoadPrefab(LevelConstant.ProducerAssetKey);
             _hiddenObjectViewPrefab = await LoadPrefab(LevelConstant.HiddenObjectAssetKey);
@@ -37,6 +37,12 @@ public class LevelObjectInitializer
             var newObjects = _hiddenObjectFactoryService.Create((prefab, parent));
             newObjects.Setup(hiddenObject);
         }
+    }
+
+    public void CreateHiddenObject(HiddenObjectData hiddenObjectData)
+    {
+        var newObjects = _hiddenObjectFactoryService.Create((_hiddenObjectViewPrefab, _parent));
+        newObjects.Setup(hiddenObjectData);
     }
 
     private async Task<BaseObjectView> LoadPrefab(string assetKey)
