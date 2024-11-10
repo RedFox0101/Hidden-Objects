@@ -26,8 +26,8 @@ public class ObjectInitializeService
 
         if (_producerViewPrefab == null)
         {
-            _producerViewPrefab = await LoadPrefab(LevelConstant.ProducerAssetKey);
-            _hiddenObjectViewPrefab = await LoadPrefab(LevelConstant.HiddenObjectAssetKey);
+            _producerViewPrefab = await LoadPrefab(ObjectAssetConstant.ProducerAssetKey);
+            _hiddenObjectViewPrefab = await LoadPrefab(ObjectAssetConstant.HiddenObjectAssetKey);
         }
 
         foreach (var hiddenObject in _levelRepository.LevelConfig[0].LevelData.Objects)

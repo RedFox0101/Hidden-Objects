@@ -1,5 +1,5 @@
 
-public class HiddenObjectCommand : ICommand, ISender
+public class HiddenObjectCommand : ICommand
 {
     private BaseObjectView _baseObjectView;
     private MessageBroker _messageBroker;
@@ -12,7 +12,8 @@ public class HiddenObjectCommand : ICommand, ISender
 
     public void Execute()
     {
-        _messageBroker.Publish(MessageBase.Create(this, _baseObjectView.HiddenObjectData.Id, null));
+        var message = new HiddenObjectMessage(new HiddenObjectMessageContainer(_baseObjectView.HiddenObjectData, _baseObjectView.transform), _baseObjectView.HiddenObjectData.Id);
+        _messageBroker.Publish(message);
         _baseObjectView.gameObject.SetActive(false);
     }
 }

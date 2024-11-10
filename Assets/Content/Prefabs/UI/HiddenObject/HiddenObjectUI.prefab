@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 6287395007271379724}
   _label: {fileID: 5851227624855882740}
+  _rectTransform: {fileID: 4320284115250111586}
 --- !u!1 &6613836182825463412
 GameObject:
   m_ObjectHideFlags: 0
