@@ -81,9 +81,11 @@ public class LevelTaskService
         }
 
         var allTasksComplete = AreAllTasksComplete();
-
+        Debug.LogWarning("UpdateTaskProgress1");
         if (allTasksComplete)
         {
+            Debug.LogWarning("UpdateTaskProgress");
+            PlayerPrefs.DeleteAll();
             _levelRepository.NextLevel();
             InitializeHiddenObjectProgress();
             SaveProgress();
@@ -100,6 +102,6 @@ public class LevelTaskService
 
     private bool AreAllTasksComplete()
     {
-        return _hiddenObjectTasks.All(task => task.FoundObjectCount == task.MaxFoundObjectCount);
+        return _hiddenObjectTasks.All(task => task.FoundObjectCount >= task.MaxFoundObjectCount);
     }
 }

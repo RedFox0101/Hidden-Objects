@@ -29,7 +29,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Apple_tree_1
+      Key: Apple_tree_A
       Produces:
         Id: Apple
         Position:
@@ -45,7 +45,7 @@ MonoBehaviour:
           x: 0
           y: 0
           z: 0
-        Key: Apple_1
+        Key: Apple_A1
     - Id: Apple_tree
       Position:
         x: -3
@@ -60,7 +60,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Apple_tree_2
+      Key: Apple_tree_B
       Produces:
         Id: Apple
         Position:
@@ -76,7 +76,7 @@ MonoBehaviour:
           x: 0
           y: 0
           z: 0
-        Key: Apple_2
+        Key: Apple_B2
     - Id: Beehive
       Position:
         x: 10
@@ -91,7 +91,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 45
-      Key: Beehive_1
+      Key: Beehive_X
       Produces:
         Id: Bee
         Position:
@@ -107,7 +107,7 @@ MonoBehaviour:
           x: 0
           y: 0
           z: 0
-        Key: Bee_1
+        Key: Bee_X1
     - Id: Plum
       Position:
         x: 3
@@ -122,7 +122,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Plum_1
+      Key: Plum_Y
       Produces:
         Id: 
         Position:
@@ -153,7 +153,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Apple_3
+      Key: Apple_Z
       Produces:
         Id: 
         Position:
@@ -184,7 +184,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Pear_1
+      Key: Pear_V
       Produces:
         Id: 
         Position:
@@ -215,7 +215,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 15
-      Key: Beehive_2
+      Key: Beehive_Y
       Produces:
         Id: Bee
         Position:
@@ -231,7 +231,7 @@ MonoBehaviour:
           x: 0
           y: 0
           z: 0
-        Key: Bee_2
+        Key: Bee_Y2
     - Id: Plum
       Position:
         x: -1
@@ -246,7 +246,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Plum_2
+      Key: Plum_W
       Produces:
         Id: 
         Position:
@@ -277,7 +277,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Apple_4
+      Key: Apple_W
       Produces:
         Id: 
         Position:
@@ -308,7 +308,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Pear_2
+      Key: Pear_U
       Produces:
         Id: 
         Position:
@@ -339,7 +339,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 25
-      Key: Beehive_3
+      Key: Beehive_Z
       Produces:
         Id: Bee
         Position:
@@ -355,7 +355,7 @@ MonoBehaviour:
           x: 0
           y: 0
           z: 0
-        Key: Bee_3
+        Key: Bee_Z3
     - Id: Plum
       Position:
         x: 6
@@ -370,7 +370,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Plum_3
+      Key: Plum_Q
       Produces:
         Id: 
         Position:
@@ -401,7 +401,7 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-      Key: Apple_tree_3
+      Key: Apple_tree_C
       Produces:
         Id: Apple
         Position:
@@ -417,35 +417,4 @@ MonoBehaviour:
           x: 0
           y: 0
           z: 0
-        Key: Apple_5
-    - Id: Pear
-      Position:
-        x: 9
-        y: -2
-        z: 0
-      Scale:
-        x: 0.7
-        y: 0.7
-        z: 0.7
-      Layer: 0
-      Rotation:
-        x: 0
-        y: 0
-        z: 0
-      Key: Pear_3
-      Produces:
-        Id: 
-        Position:
-          x: 0
-          y: 0
-          z: 0
-        Scale:
-          x: 0
-          y: 0
-          z: 0
-        Layer: 0
-        Rotation:
-          x: 0
-          y: 0
-          z: 0
-        Key: 
+        Key: Apple_C4

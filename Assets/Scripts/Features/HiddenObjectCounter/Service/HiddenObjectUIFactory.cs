@@ -2,7 +2,7 @@ using Assets.Scripts.Features.AssetLoader;
 using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
-public class HiddenObjectUIFactory : IFactory<Transform, Task<HiddenObjectUI>>
+public class HiddenObjectUIFactory : IFactory<Transform, HiddenObjectUI>
 {
     private AssetsLoaderService _assetLoaderService;
     private GameObject _hiddenObjectUIPrefab;
@@ -13,19 +13,15 @@ public class HiddenObjectUIFactory : IFactory<Transform, Task<HiddenObjectUI>>
     {
         _assetLoaderService = assetLoaderService;
         _container = diContainer;
-        LoadPrefab();
     }
 
-    private async void LoadPrefab()
+    public async Task LoadPrefab()
     {
-        _hiddenObjectUIPrefab = await _assetLoaderService.LoadAsset<GameObject>("HiddenObjectUI");
+        _hiddenObjectUIPrefab = await _assetLoaderService.LoadAsset<GameObject>(ObjectCounterConstant.HiddenObjectUIAssetKey);
     }
 
-    public async Task<HiddenObjectUI> Create(Transform parent)
+    public  HiddenObjectUI Create(Transform parent)
     {
-        if(_hiddenObjectUIPrefab == null)
-            _hiddenObjectUIPrefab =await _assetLoaderService.LoadAsset<GameObject>("HiddenObjectUI");
-
         return _container.InstantiatePrefabForComponent<HiddenObjectUI>(_hiddenObjectUIPrefab, parent);
     }
 }

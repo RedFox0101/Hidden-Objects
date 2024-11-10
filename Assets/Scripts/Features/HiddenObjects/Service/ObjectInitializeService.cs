@@ -32,7 +32,9 @@ public class ObjectInitializeService
 
         foreach (var hiddenObject in _levelRepository.CurrentLevelConfig.LevelData.Objects)
         {
-            var prefab = hiddenObject.Produces != null ? _producerViewPrefab : _hiddenObjectViewPrefab;
+            var isProducer = (hiddenObject.Produces != null);
+            var prefab = isProducer ? _producerViewPrefab : _hiddenObjectViewPrefab;
+            Debug.Log("InitializeObjects " + hiddenObject.Id+ " "+prefab.name);
 
             var newObjects = _hiddenObjectFactoryService.Create((prefab, parent));
             SetupObject(hiddenObject, newObjects);

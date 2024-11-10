@@ -3,17 +3,11 @@
     "m_SelectedProcess": {
         "deviceId": "84b811820013",
         "name": "com.RedFox.HiddenObjects",
-        "processId": 15215,
+        "processId": 19206,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownProcessesForSerialization": [
-        {
-            "deviceId": "84b811820013",
-            "name": "com.RedFox.HiddenObjects",
-            "processId": 1776,
-            "exited": true
-        },
         {
             "deviceId": "84b811820013",
             "name": "com.RedFox.HiddenObjects",
@@ -36,6 +30,12 @@
             "deviceId": "84b811820013",
             "name": "com.RedFox.HiddenObjects",
             "processId": 15215,
+            "exited": true
+        },
+        {
+            "deviceId": "84b811820013",
+            "name": "com.RedFox.HiddenObjects",
+            "processId": 19206,
             "exited": false
         }
     ],

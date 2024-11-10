@@ -17,8 +17,8 @@ public class ObjectCounterService
     {
         foreach (var task in _levelTaskService.HiddenObjectTasks)
         {
-            var hiddenObjectUI = await _hiddenObjectUIFactory.Create(parent);
-            hiddenObjectUI.Setup(task.MaxFoundObjectCount,task.FoundObjectCount ,task.Id);
+            var hiddenObjectUI = _hiddenObjectUIFactory.Create(parent);
+            hiddenObjectUI.Setup(task.MaxFoundObjectCount, task.FoundObjectCount, task.Id);
         }
     }
 }

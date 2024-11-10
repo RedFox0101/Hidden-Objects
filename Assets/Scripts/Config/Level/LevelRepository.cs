@@ -22,7 +22,7 @@ public class LevelRepository : ScriptableObject
         {
             _currentLevelIndex = 0;
         }
-         PlayerPrefs.SetInt(_levelConfig[0].name, _currentLevelIndex);
+        PlayerPrefs.SetInt(_levelConfig[0].name, _currentLevelIndex);
         PlayerPrefs.Save();
     }
 
@@ -30,7 +30,11 @@ public class LevelRepository : ScriptableObject
     {
         if (PlayerPrefs.HasKey(_levelConfig[0].name))
         {
-           _currentLevelIndex= PlayerPrefs.GetInt(_levelConfig[0].name);     
+            _currentLevelIndex = PlayerPrefs.GetInt(_levelConfig[0].name);
+        }
+        else
+        {
+            _currentLevelIndex = 0;
         }
         return CurrentLevelConfig.name;
     }
