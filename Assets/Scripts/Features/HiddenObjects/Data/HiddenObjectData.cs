@@ -1,3 +1,6 @@
+using System.Security.Cryptography;
+using System.Text;
+
 [System.Serializable]
 public class HiddenObjectData
 {
@@ -6,6 +9,13 @@ public class HiddenObjectData
     public Vector Scale;
     public int Layer;
     public Vector Rotation;
+    public string Key;
     public Producer Produces;
+
+    public override string ToString()
+    {
+        return Key;
+    }
+
 }
 

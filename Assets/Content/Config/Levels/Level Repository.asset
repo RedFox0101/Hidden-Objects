@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348e7f27caa370a4d9fcfd4b7606c065, type: 3}
   m_Name: Level Repository
   m_EditorClassIdentifier: 
-  <LevelConfig>k__BackingField:
+  _levelConfig:
   - {fileID: 11400000, guid: a7e630f990d7b3842b033370a311d2e5, type: 2}
+  - {fileID: 11400000, guid: bcdf262e70b79cc4ca40523b223a17e1, type: 2}
+  _currentLevelIndex: 0
+  <LevelScene>k__BackingField: LevelScene

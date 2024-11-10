@@ -1,0 +1,164 @@
+{
+  "objects": [
+    {
+      "Id": "Apple_tree",
+      "Key": "Apple_tree_1",
+      "Position": { "x": 5, "y": 2, "z": 0 },
+      "Scale": { "x": 1.0, "y": 1.0, "z": 1.0 },
+      "Layer": 1,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "Produces": {
+        "Id": "Apple",
+        "Key": "Apple_1",
+        "Position": { "x": 0, "y": 0, "z": 0 },
+        "Scale": { "x": 0.5, "y": 0.5, "z": 0.5 },
+        "Layer": 1,
+        "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+      }
+    },
+    {
+      "Id": "Apple_tree",
+      "Key": "Apple_tree_2",
+      "Position": { "x": -3, "y": 4, "z": 0 },
+      "Scale": { "x": 1.0, "y": 1.0, "z": 1.0 },
+      "Layer": 1,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "Produces": {
+        "Id": "Apple",
+        "Key": "Apple_2",
+        "Position": { "x": 0, "y": 0, "z": 0 },
+        "Scale": { "x": 0.5, "y": 0.5, "z": 0.5 },
+        "Layer": 1,
+        "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+      }
+    },
+    {
+      "Id": "Beehive",
+      "Key": "Beehive_1",
+      "Position": { "x": 10, "y": -3, "z": 0 },
+      "Scale": { "x": 1.2, "y": 1.2, "z": 1.2 },
+      "Layer": 2,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 45.0 },
+      "Produces": {
+        "Id": "Bee",
+        "Key": "Bee_1",
+        "Position": { "x": 0, "y": 0, "z": 0 },
+        "Scale": { "x": 0.3, "y": 0.3, "z": 0.3 },
+        "Layer": 1,
+        "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+      }
+    },
+    {
+      "Id": "Plum",
+      "Key": "Plum_1",
+      "Position": { "x": 3, "y": 5, "z": 0 },
+      "Scale": { "x": 0.5, "y": 0.5, "z": 0.5 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Apple",
+      "Key": "Apple_3",
+      "Position": { "x": 4, "y": -1, "z": 0 },
+      "Scale": { "x": 0.6, "y": 0.6, "z": 0.6 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Pear",
+      "Key": "Pear_1",
+      "Position": { "x": 1, "y": 8, "z": 0 },
+      "Scale": { "x": 0.7, "y": 0.7, "z": 0.7 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Beehive",
+      "Key": "Beehive_2",
+      "Position": { "x": -6, "y": 7, "z": 0 },
+      "Scale": { "x": 1.2, "y": 1.2, "z": 1.2 },
+      "Layer": 2,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 15.0 },
+      "Produces": {
+        "Id": "Bee",
+        "Key": "Bee_2",
+        "Position": { "x": 0, "y": 0, "z": 0 },
+        "Scale": { "x": 0.3, "y": 0.3, "z": 0.3 },
+        "Layer": 1,
+        "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+      }
+    },
+    {
+      "Id": "Plum",
+      "Key": "Plum_2",
+      "Position": { "x": -1, "y": 3, "z": 0 },
+      "Scale": { "x": 0.5, "y": 0.5, "z": 0.5 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Apple",
+      "Key": "Apple_4",
+      "Position": { "x": 2, "y": 4, "z": 0 },
+      "Scale": { "x": 0.6, "y": 0.6, "z": 0.6 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Pear",
+      "Key": "Pear_2",
+      "Position": { "x": -2, "y": 9, "z": 0 },
+      "Scale": { "x": 0.7, "y": 0.7, "z": 0.7 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Beehive",
+      "Key": "Beehive_3",
+      "Position": { "x": 7, "y": 2, "z": 0 },
+      "Scale": { "x": 1.2, "y": 1.2, "z": 1.2 },
+      "Layer": 2,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 25.0 },
+      "Produces": {
+        "Id": "Bee",
+        "Key": "Bee_3",
+        "Position": { "x": 0, "y": 0, "z": 0 },
+        "Scale": { "x": 0.3, "y": 0.3, "z": 0.3 },
+        "Layer": 1,
+        "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+      }
+    },
+    {
+      "Id": "Plum",
+      "Key": "Plum_3",
+      "Position": { "x": 6, "y": 5, "z": 0 },
+      "Scale": { "x": 0.5, "y": 0.5, "z": 0.5 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    },
+    {
+      "Id": "Apple_tree",
+      "Key": "Apple_tree_3",
+      "Position": { "x": 0, "y": -5, "z": 0 },
+      "Scale": { "x": 1.0, "y": 1.0, "z": 1.0 },
+      "Layer": 1,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "Produces": {
+        "Id": "Apple",
+        "Key": "Apple_5",
+        "Position": { "x": 0, "y": 0, "z": 0 },
+        "Scale": { "x": 0.5, "y": 0.5, "z": 0.5 },
+        "Layer": 1,
+        "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+      }
+    },
+    {
+      "Id": "Pear",
+      "Key": "Pear_3",
+      "Position": { "x": 9, "y": -2, "z": 0 },
+      "Scale": { "x": 0.7, "y": 0.7, "z": 0.7 },
+      "Layer": 0,
+      "Rotation": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    }
+  ]
+}

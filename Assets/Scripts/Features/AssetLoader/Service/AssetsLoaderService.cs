@@ -1,4 +1,3 @@
-using Assets.Scripts.Features.SceneLoader;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -29,7 +28,7 @@ namespace Assets.Scripts.Features.AssetLoader
             }
             else
             {
-                Debug.LogError($"Failed to load asset with key: {key}");
+                Debug.LogError($"Failed to load asset with _saveDataKey : {key}");
                 return null;
             }
         }

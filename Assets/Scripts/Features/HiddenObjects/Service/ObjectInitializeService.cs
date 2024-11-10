@@ -30,19 +30,24 @@ public class ObjectInitializeService
             _hiddenObjectViewPrefab = await LoadPrefab(ObjectAssetConstant.HiddenObjectAssetKey);
         }
 
-        foreach (var hiddenObject in _levelRepository.LevelConfig[0].LevelData.Objects)
+        foreach (var hiddenObject in _levelRepository.CurrentLevelConfig.LevelData.Objects)
         {
             var prefab = hiddenObject.Produces != null ? _producerViewPrefab : _hiddenObjectViewPrefab;
 
             var newObjects = _hiddenObjectFactoryService.Create((prefab, parent));
-            newObjects.Setup(hiddenObject);
+            SetupObject(hiddenObject, newObjects);
         }
     }
 
     public void CreateHiddenObject(HiddenObjectData hiddenObjectData)
     {
         var newObjects = _hiddenObjectFactoryService.Create((_hiddenObjectViewPrefab, _parent));
-        newObjects.Setup(hiddenObjectData);
+        SetupObject(hiddenObjectData, newObjects);
+    }
+
+    private void SetupObject(HiddenObjectData hiddenObject, BaseObjectView newObjects)
+    {
+        newObjects.Setup(hiddenObject);
     }
 
     private async Task<BaseObjectView> LoadPrefab(string assetKey)

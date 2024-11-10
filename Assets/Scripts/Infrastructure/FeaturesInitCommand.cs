@@ -14,7 +14,7 @@ namespace Assets.Scripts.Infrastructure
 
         private void CreateInitializationPipe()
         {
-
+            _initializationCommandExecutor.Add<SavingFeatureInitCommand>();
             _initializationCommandExecutor.Add<ObjectInteractionFeatureInitCommand>();
             _initializationCommandExecutor.Add<MessageFeatureInitCommand>();
             _initializationCommandExecutor.Add<CameraFeatureInitCommand>();

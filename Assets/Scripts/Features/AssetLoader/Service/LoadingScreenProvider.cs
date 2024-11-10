@@ -12,8 +12,11 @@ namespace Assets.Scripts.Features.AssetLoader
 
         public async Task<UILoadingScreen> LoadUILoadScreenAsync(string key)
         {
-            if(_cashObject !=null)
-                return _cashObject.GetComponent<UILoadingScreen>();
+            if(_cashObject != null)
+            {
+                _cashObject.gameObject.SetActive(true);
+                return _cashObject;
+            }
 
             AsyncOperationHandle handle = Addressables.InstantiateAsync(key);
             var gameObject = (GameObject)await handle.Task;
@@ -26,7 +29,7 @@ namespace Assets.Scripts.Features.AssetLoader
             }
             else
             {
-                Debug.LogError($"Failed to load asset with key: {key}");
+                Debug.LogError($"Failed to load asset with _saveDataKey : {key}");
                 return null;
             }
         }

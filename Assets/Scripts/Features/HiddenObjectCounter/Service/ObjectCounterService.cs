@@ -1,31 +1,24 @@
-using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class ObjectCounterService
 {
-    private LevelRepository _levelRepository;
+    private LevelTaskService _levelTaskService;
     private HiddenObjectUIFactory _hiddenObjectUIFactory;
 
-    public ObjectCounterService(LevelRepository levelRepository, HiddenObjectUIFactory hiddenObjectUIFactory)
+    public ObjectCounterService(LevelTaskService levelTaskService, HiddenObjectUIFactory hiddenObjectUIFactory)
     {
-        _levelRepository = levelRepository;
+        _levelTaskService = levelTaskService;
         _hiddenObjectUIFactory = hiddenObjectUIFactory;
 
     }
 
     public async Task SetupUIPanel(Transform parent)
     {
-
-        var result = _levelRepository.LevelConfig[0].LevelData.Objects
-            .GroupBy(x => x.Produces?.Id ?? x.Id)
-            .Select(g => new { Id = g.Key, Count = g.Count() });
-
-
-        foreach (var item in result)
+        foreach (var task in _levelTaskService.HiddenObjectTasks)
         {
             var hiddenObjectUI = await _hiddenObjectUIFactory.Create(parent);
-            hiddenObjectUI.Setup(item.Count.ToString(), item.Id);
+            hiddenObjectUI.Setup(task.MaxFoundObjectCount,task.FoundObjectCount ,task.Id);
         }
     }
 }

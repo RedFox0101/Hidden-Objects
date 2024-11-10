@@ -1,12 +1,11 @@
 using System.Threading.Tasks;
 using UniRx;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class CameraControlService 
 {
     private CompositeDisposable _compositeDisposable;
-    private ICameraControlStrategy _cameraControl;
+    private ICameraControl _cameraControl;
     private readonly CameraControlConfig _config;
 
     public CameraControlService(CameraControlConfig config)
@@ -29,8 +28,10 @@ public class CameraControlService
     {
         _compositeDisposable = new CompositeDisposable();
 #if UNITY_EDITOR 
-        _cameraControl = new PlayModeCameraControl(Camera.main, config);
+        _cameraControl = new EditorCameraControl(Camera.main, config);
 #else
+        _cameraControl= new MobileCameraControl(Camera.main, config);
+
 #endif
     }
 

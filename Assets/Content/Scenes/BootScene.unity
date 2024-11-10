@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 848811088}
   - component: {fileID: 848811087}
-  - component: {fileID: 848811086}
   m_Layer: 0
   m_Name: Bootstrap
   m_TagString: Untagged
@@ -141,20 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &848811086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848811085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad3c0d98d11ee84a844e0b5b677b9af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: LevelScene
-  SceneAsset: {fileID: 102900000, guid: 40e61a5e197aa144e836ff36eca01283, type: 3}
 --- !u!114 &848811087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1bcdc45b10e0a45a466b9292e17e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelScene: {fileID: 848811086}
+  _levelScene: LevelScene
 --- !u!4 &848811088
 Transform:
   m_ObjectHideFlags: 0

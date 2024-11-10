@@ -20,16 +20,12 @@ public class LevelSetupService : MonoBehaviour
     private async void Awake()
     {
         var loadingScreen = await _loadingScreenProvider.LoadUILoadScreenAsync(SceneLoaderConstant.UILoadingScreen);
-        var taskNumber = 0;
         foreach (var service in _serviceStarters)
         {
             if (service.TryGetComponent<IServiceStarter>(out IServiceStarter serviceStarter))
             {
-
                 _currentServiceStarters.Add(serviceStarter);
                 await serviceStarter.StartService();
-                loadingScreen.SetProgress(taskNumber / _serviceStarters.Count);
-                taskNumber++;
             }
         }
         _loadingScreenProvider.UnloadLoadingScreen();

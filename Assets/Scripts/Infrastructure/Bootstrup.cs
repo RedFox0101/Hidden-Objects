@@ -1,11 +1,10 @@
-using Assets.Scripts.Features.SceneLoader;
 using Assets.Scripts.Features.SceneLoader.Service;
 using UnityEngine;
 using Zenject;
 
 public class Bootstrup : MonoBehaviour
 {
-    [SerializeField] private SceneSelector _levelScene;
+    [SerializeField] private string _levelScene;
     private SceneLoaderService _sceneLoaderService;
 
     [Inject]
@@ -16,6 +15,7 @@ public class Bootstrup : MonoBehaviour
 
     private void Start()
     {
-        _sceneLoaderService.LoadScene(_levelScene.SceneName);
+        Application.targetFrameRate = 60;
+        _sceneLoaderService.LoadScene(_levelScene);
     }
 }

@@ -1,5 +1,4 @@
 using Assets.Scripts.Features.AssetLoader;
-using System.Threading.Tasks;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -17,7 +16,7 @@ public class HiddenObjectUI : MonoBehaviour
     private AnimationViewFactory _animationViewFactory;
     private CompositeDisposable _disposables = new CompositeDisposable();
 
-    private int _currentNumberObject;
+    private int _foundObjectCount;
 
     [Inject]
     private void Constructor(AssetsLoaderService assetsLoaderService, MessageBroker messageBroker, AnimationViewFactory animationViewFactory)
@@ -27,13 +26,14 @@ public class HiddenObjectUI : MonoBehaviour
         _animationViewFactory = animationViewFactory;
     }
 
-    public async void Setup(string maxHiddenObject, string id)
+    public async void Setup(int maxHiddenObject, int foundObjectCount, string id)
     {
-        _label.text = $"{_currentNumberObject}/{maxHiddenObject}";
-        _icon.sprite = await _assetsLoaderService.LoadAsset<Sprite>(id);
+        _foundObjectCount = foundObjectCount;
+        _label.text = $"{_foundObjectCount}/{maxHiddenObject}";
 
         SubscribeToHiddenObjectMessages(id);
-        SubscribeToAnimationMessages(maxHiddenObject, id);
+        SubscribeToAnimationMessages(maxHiddenObject.ToString(), id);
+        _icon.sprite = await _assetsLoaderService.LoadAsset<Sprite>(id);
     }
 
     private void SubscribeToHiddenObjectMessages(string id)
@@ -58,8 +58,8 @@ public class HiddenObjectUI : MonoBehaviour
            .Where(msg => msg.Id == id)
            .Subscribe(msg =>
            {
-               _currentNumberObject++;
-               _label.text = $"{_currentNumberObject}/{maxHiddenObject}";
+               _foundObjectCount++;
+               _label.text = $"{_foundObjectCount}/{maxHiddenObject}";
            }).AddTo(_disposables);
     }
 

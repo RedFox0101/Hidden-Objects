@@ -6,4 +6,5 @@ public class Producer
     public Vector Scale;
     public int Layer;
     public Vector Rotation;
+    public string Key;
 }

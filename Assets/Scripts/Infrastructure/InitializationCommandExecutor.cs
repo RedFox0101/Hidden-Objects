@@ -17,7 +17,7 @@ namespace Assets.Scripts.Infrastructure
 
         public void Add<TFeatureInitCommand>() where TFeatureInitCommand : BaseFeatureInitCommand, new()
         {
-            Debug.Log("BindDependencies1");
+           
             TFeatureInitCommand command = new TFeatureInitCommand();
             _baseFeatureInitCommands.Add(command);
             command.BindDependencies(_container);

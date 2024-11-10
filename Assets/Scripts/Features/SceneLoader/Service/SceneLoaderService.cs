@@ -3,17 +3,21 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UniRx;
+using System;
 namespace Assets.Scripts.Features.SceneLoader.Service
 {
     public class SceneLoaderService : ISceneLoaderService
     {
         private CompositeDisposable _disposables = new CompositeDisposable();
         private LoadingScreenProvider _loadingScreenProvider;
+        private MessageBroker _messageBroker;
         private UILoadingScreen _loadingScreen;
 
-        public SceneLoaderService(LoadingScreenProvider assetsLoaderService)
+        public SceneLoaderService(LoadingScreenProvider assetsLoaderService, MessageBroker messageBroker)
         {
             _loadingScreenProvider = assetsLoaderService;
+            _messageBroker = messageBroker;
+            SubscribeToSceneMessagesMessages();
         }
 
         public async void LoadScene(string sceneName) => await LoadSceneAsync(sceneName);
@@ -46,6 +50,15 @@ namespace Assets.Scripts.Features.SceneLoader.Service
         private async Task LoadUILoadingScreen()
         {
             _loadingScreen = await _loadingScreenProvider.LoadUILoadScreenAsync(SceneLoaderConstant.UILoadingScreen);
+        }
+
+        private void SubscribeToSceneMessagesMessages()
+        {
+            _messageBroker.Receive<SceneMessage>()
+               .Subscribe(msg =>
+               {
+                   LoadScene(msg.SceneName);
+               }).AddTo(_disposables);
         }
     }
 }

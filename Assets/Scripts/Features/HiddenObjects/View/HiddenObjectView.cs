@@ -14,7 +14,8 @@ public class HiddenObjectView : BaseObjectView
 
     public override void Setup(HiddenObjectData hiddenObjectData)
     {
-        ObjectClickCommand=new HiddenObjectCommand(this, _messageBroker);
+        ObjectClickCommand=new HiddenObjectClickCommand(this, _messageBroker);
+        LoadSaveCommand = new HiddenObjectLoadSaveCommand(gameObject);
         base.Setup(hiddenObjectData);
     }
 
