@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ObjectCounterService
@@ -13,7 +14,7 @@ public class ObjectCounterService
 
     }
 
-    public async void SetupUIPanel(Transform parent)
+    public async Task SetupUIPanel(Transform parent)
     {
 
         var result = _levelRepository.LevelConfig[0].LevelData.Objects
@@ -23,7 +24,6 @@ public class ObjectCounterService
 
         foreach (var item in result)
         {
-            Debug.Log($"{item.Id} - {item.Count}");
             var hiddenObjectUI = await _hiddenObjectUIFactory.Create(parent);
             hiddenObjectUI.Setup(item.Count.ToString(), item.Id);
         }

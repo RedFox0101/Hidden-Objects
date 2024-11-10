@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UniRx;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class CameraControlService
     }
 
 
-    public void StartMoveCamera()
+    public async Task StartMoveCamera()
     {
         SetCameraControlStrategy(_config);
         Observable.EveryUpdate().Subscribe(_ =>
@@ -23,6 +24,7 @@ public class CameraControlService
             _cameraControl.ZoomCamera();
         }).AddTo(_compositeDisposable);
     }
+
     private void SetCameraControlStrategy(CameraControlConfig config)
     {
         _compositeDisposable = new CompositeDisposable();

@@ -22,7 +22,7 @@ public class AnimationViewFactory : IFactory<HiddenObjectAnimationView>
         return _diContainer.InstantiatePrefabForComponent<HiddenObjectAnimationView>(_hiddenObjectAnimationView, _parent);
     }
 
-    public async void LoadPrefab(Transform parent)
+    public async Task LoadPrefab(Transform parent)
     {
         _parent = parent;
         if (_hiddenObjectAnimationView == null)

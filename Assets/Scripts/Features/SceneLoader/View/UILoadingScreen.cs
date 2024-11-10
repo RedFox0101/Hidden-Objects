@@ -7,6 +7,11 @@ namespace Assets.Scripts.Features.SceneLoader
     {
         [SerializeField] private Image _progressBar;
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         public void SetProgress(float taskProgress)
         {
             if (_progressBar == null) return;

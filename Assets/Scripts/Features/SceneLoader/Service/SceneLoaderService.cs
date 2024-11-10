@@ -22,15 +22,25 @@ namespace Assets.Scripts.Features.SceneLoader.Service
         {
             await LoadUILoadingScreen();
 
-            SceneManager.LoadSceneAsync(sceneName).AsAsyncOperationObservable().Do(x =>
+            var asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+            asyncOperation.allowSceneActivation = false;
+
+            while (!asyncOperation.isDone)
             {
-                float progress = Mathf.Clamp01(x.progress / 0.9f);
+
+                float progress = Mathf.Clamp01(asyncOperation.progress / 0.9f);
                 _loadingScreen.SetProgress(progress);
-            }).Subscribe(_ =>
-            {
-                _loadingScreenProvider.UnloadLoadingScreen();
-                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            }).AddTo(_disposables);
+
+
+                if (asyncOperation.progress >= 0.9f)
+                {
+                    asyncOperation.allowSceneActivation = true;
+                }
+
+                await Task.Yield();
+            }
+
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
 
         private async Task LoadUILoadingScreen()

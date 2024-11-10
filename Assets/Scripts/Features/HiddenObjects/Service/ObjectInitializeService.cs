@@ -20,7 +20,7 @@ public class ObjectInitializeService
         _assetsLoaderService = assetsLoaderService;
     }
 
-    public async void InitializeObjects(Transform parent)
+    public async Task InitializeObjects(Transform parent)
     {
         _parent = parent;
 

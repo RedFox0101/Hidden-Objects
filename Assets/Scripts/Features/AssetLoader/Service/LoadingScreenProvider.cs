@@ -8,17 +8,20 @@ namespace Assets.Scripts.Features.AssetLoader
 {
     public class LoadingScreenProvider
     {
-        private GameObject _cashObject;
+        private UILoadingScreen _cashObject;
 
         public async Task<UILoadingScreen> LoadUILoadScreenAsync(string key)
         {
+            if(_cashObject !=null)
+                return _cashObject.GetComponent<UILoadingScreen>();
 
             AsyncOperationHandle handle = Addressables.InstantiateAsync(key);
-            _cashObject = (GameObject)await handle.Task;
+            var gameObject = (GameObject)await handle.Task;
 
 
-            if (_cashObject.TryGetComponent(out UILoadingScreen loadingScreen))
+            if (gameObject.TryGetComponent(out UILoadingScreen loadingScreen))
             {
+                _cashObject=loadingScreen;
                 return loadingScreen;
             }
             else
@@ -33,9 +36,7 @@ namespace Assets.Scripts.Features.AssetLoader
             if (_cashObject == null)
                 return;
 
-            _cashObject.SetActive(false);
-            Addressables.ReleaseInstance(_cashObject);
-            _cashObject = null;
+            _cashObject.gameObject.SetActive(false);
         }
     }
 }
